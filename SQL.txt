@@ -1,0 +1,36 @@
+Task 1.
+select 
+    id,
+    date,
+    YEAR(date) AS Year,
+    MONTH(date) AS Month,
+    DAY(date) AS Day
+from hw3.orders
+
+Task 2.
+select 
+    id,
+    date as original_date,
+    DATE_ADD(date, INTERVAL 1 DAY) as added_date
+from hw3.orders
+
+
+Task 3.
+select 
+    id,
+    date as original_date,
+    UNIX_TIMESTAMP(DATE) as unix_date
+from hw3.orders
+
+Task 4.
+select 
+    COUNT(date) as how_much_betwen
+from hw3.orders
+where date between '1996-07-10 00:00:00' and '1996-10-08 00:00:00'
+
+Task 5.
+select 
+    id,
+    date,
+    JSON_OBJECT('id', id, 'date', date) as json_format
+from hw3.orders
